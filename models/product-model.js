@@ -1,12 +1,13 @@
 const mongoose = require('mongoose')
 
-const userSchema = mongoose.Schema({
-    fullname: String,
-    email:String,
-    password:String,
-    contact:Number,
-    cart:[],
-    orders:[],
-    isAdmin:Boolean
+const postSchema = mongoose.Schema({
+    image: String,
+    name:String,
+    price:String,
+    discount:Number,
+    bgColor:String,
+    panelColor:String,
+    textColor:String
 })
-module.exports = mongoose.model('user', userSchema)
+
+module.exports = mongoose.model('user', postSchema)
