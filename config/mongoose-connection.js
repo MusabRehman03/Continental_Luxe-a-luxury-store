@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const dbgr = require("debug")("development:mongoose-connection");// required as we are makingn env variables in config/development.js
+//to let his debugger run , we have to run the command of: export DEBUG=development:*
 const config = require('config')
 
 mongoose
