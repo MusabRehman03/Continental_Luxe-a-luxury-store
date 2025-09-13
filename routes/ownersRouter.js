@@ -10,7 +10,6 @@ if(process.env.NODE_ENV === "development"){
     router.post('/create', async function(req, res){
         const owner = await ownerModel.find()
         if(owner.length > 0){
-            console.log(owner)
             return res.status(500).send(owner)
         }
 
