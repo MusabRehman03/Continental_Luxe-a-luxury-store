@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
-const dbgr = require("debug")("development:mongoose-connection");// required as we are makingn env variables in config/development.js
-//to let his debugger run , we have to run the command of: export DEBUG=development:*
-const config = require('config')
+const dbgr = require("debug")("development:mongoose-connection");// this func call was so that we ca get from which file the debugger is
+//to let this debugger run , we have to run the command of: export DEBUG=development:* (this is actually setting environment in memory directly)
+//annd export DEBUG=  if we dont want these messages to print
+const config = require('config') //this package is required to use dev.json content (MONGODB_URI)
 
 mongoose
   .connect(`${config.get('MONGODB_URI')}/Continental-Luxe`) //this is better way than in .env file
