@@ -1,3 +1,6 @@
+//;export NODE_ENV = development //this command is to set up of NODE_ENV from command line instead of in env file, in this way this will be directly stored in the memory
+//;this command is actually required to set up the environmentn to development
+
 const cookieParser = require('cookie-parser')
 const express = require('express')
 const app= express()
