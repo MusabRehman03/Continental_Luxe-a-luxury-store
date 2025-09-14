@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 const { registerUser } = require("../controllers/userRegisterController");
-const { loginUser } = require("../controllers/userLoginController");
+const { loginUser, logOut } = require("../controllers/userLoginController");
+const { addToCart } = require("../controllers/addToCartController")
 
 router.get("/", function (req, res) {
   res.send("its working, from usersRouter");
@@ -11,9 +12,8 @@ router.get("/", function (req, res) {
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 
-router.get("/logout", function (req, res) {
-  res.cookie("token", "");
-  res.redirect('/')
-});
+router.get("/addtocart/:userid/:productid", addToCart);
+
+router.get("/logout", logOut);
 
 module.exports = router;
