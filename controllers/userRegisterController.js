@@ -2,6 +2,8 @@ const userModel = require("../models/user-model");
 const dbgr = require("debug")("development: usersRouter");
 const bcrypt = require("bcrypt");
 const generateToken = require("../utils/generateToken");
+const productModel = require("../models/product-model")
+
 
 module.exports.registerUser = async function (req, res) {
   try {
@@ -19,9 +21,10 @@ module.exports.registerUser = async function (req, res) {
             password: hash,
           });
           dbgr(user);
+          const products = await productModel.find()
           let token = generateToken(user);
           res.cookie("token", token);
-          res.status(200).render("home", { user });
+          res.status(200).render("shop", { user, products});
         }
       });
     }
