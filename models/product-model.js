@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const postSchema = mongoose.Schema({
+const productSchema = mongoose.Schema({
     image: String,
     name:String,
     price:String,
@@ -10,4 +10,4 @@ const postSchema = mongoose.Schema({
     textColor:String
 })
 
-module.exports = mongoose.model('user', postSchema)
+module.exports = mongoose.model('product', productSchema)
