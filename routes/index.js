@@ -7,6 +7,11 @@ router.get('/', function(req, res){
     res.render('index')
 })
 
+router.get('/check', function(req, res){
+    console.log('working')
+    res.send("its working")
+})
+
 router.get('/shop', isLoggedIn, async function(req, res){
     const products = await productModel.find()
     res.render('shop', {user:req.user, products})
