@@ -4,12 +4,17 @@ const dbgr = require("debug")("development:mongoose-connection");// this func ca
 //annd export DEBUG=  if we dont want these messages to print
 const config = require('config') //this package is required to use dev.json content (MONGODB_URI)
 
+
+
 mongoose
-  .connect(`${config.get('MONGODB_URI')}/Continental-Luxe`) //this is better way than in .env file
+  .connect(process.env.MONGODB_URI) //this is better way than in .env file
+  
   .then(() => {
+
     dbgr("db connnected succesfully");
   })
   .catch((err) => {
+
     dbgr("error in db connection: ", err);
   });
 

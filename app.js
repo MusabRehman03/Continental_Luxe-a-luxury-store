@@ -1,11 +1,10 @@
 //;export NODE_ENV = development //this command is to set up of NODE_ENV from command line instead of in env file, in this way this will be directly stored in the memory
 //;this command is actually required to set up the environmentn to development
-
+require('dotenv').config()  //this line is required to use env varibales set up in .env file
 const cookieParser = require('cookie-parser')
 const express = require('express')
 const app= express()
 const db = require('./config/mongoose-connection')
-require('dotenv').config() //this line is required to use env varibales set up in .env file
 const expressSession = require("express-session") //this is required to use flash messages
 const flash = require('connect-flash') // by this flash messages, when redirect in case of any issue, the message will stillbe accessible on redirected route
 
