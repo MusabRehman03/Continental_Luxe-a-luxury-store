@@ -21,6 +21,7 @@ app.use(expressSession({
     secret: process.env.EXPRESS_SESSION_KEY,
     resave: false,
     saveUninitialized: false,
+    cookie: { secure: true }
   }))
 app.use(flash())
 
@@ -30,4 +31,5 @@ app.use('/owners', ownersRouter)
 app.use('/', index)
 
 
-app.listen(3000);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
